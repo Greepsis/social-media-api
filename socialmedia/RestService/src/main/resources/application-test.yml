@@ -1,0 +1,32 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console/
+  session:
+    jdbc:
+      initialize-schema: always
+      table-name: SPRING_SESSION
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:socialmedia
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+        jdbc:
+          timezone: UTC
+    defer-datasource-initialization: true
+  path:
+    to:
+      image: RestService/src/main/resources/pictures/
+  auth:
+    jwt:
+      secure_key: Hello_kEy-For:my_app-ultra-secure-and-ultra-long-secret
+      validity-in-milliseconds: 86400000
